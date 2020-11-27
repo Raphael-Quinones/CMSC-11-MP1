@@ -4,7 +4,7 @@
 int main() {
     //PRE-SET ARRAY
     char arr[12] = {'B','D','Z','X','W','M','O','S','P','H','G','E'};
-    char opt, search;
+    char opt, search, tmp;
     int array_size = 12, k=0;
 
     while (opt != '0') { // Makes code re-run when user doesn't define opt as '0'
@@ -31,7 +31,7 @@ int main() {
 
         // - MAIN MENU
         switch (opt) {
-            case '1':
+            case '1'://Linear Search
                 printf("You pressed 1\n");
                 printf("Input your letter to search: \n");
                 scanf(" %c", &search);
@@ -88,15 +88,26 @@ int main() {
                     {
                         printf("\nSorry your input was invalid\n");
                     }
-
-
                 }
                 k=0; //restart value of k for repetitive instances
 
                 /* CORE */
                 break;
             case '3':
-                printf("You pressed 3\n");
+                printf("You pressed 3\n");                                                                              //This algorithm instead of this: https://onlinegdb.com/S1RXU8R5D
+                /* CORE */                                                                                              //Since linked algorithm is hard to make a flowchart out of
+                //Comparing all pairs in array (All combinations, with each combination having 2 elements)              //
+                for (int i=0; i<array_size; i++)
+                    for(int j=i+1; j<array_size; j++)
+                        if(arr[j] <arr[i])
+                        {
+                            tmp = arr[i];       //Sorting
+                            arr[i] = arr[j];    //Sorting
+                            arr[j] = tmp;       //Sorting
+                        }
+                /* CORE */
+                for (int i=0; i<array_size; i++)
+                    printf("%c  ", arr[i]);
                 break;
             case '0': // Only used when User Enters 0 during first instance of program
                 printf("Program will now exit\n");
