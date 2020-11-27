@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h> //used for strlen();
+#include <ctype.h> //for toupper() function
 
 int main() {
     //PRE-SET ARRAY
@@ -62,9 +62,11 @@ int main() {
                 {
                     printf("%c ", arr[i]);
                 }
+                printf("\n--Your input will be converted to uppercase--\n");
                 printf("\nEnter search: \n");
                 scanf(" %c", &search);
                 while ( getchar() != '\n');//Since previous scanf only gets 1 character, extra characters entered by user will be scanned by next scanf
+                search = toupper(search);
                 printf("\nYour input was: %c\n", search);
                 /* CORE */
                 //Use Original Array to save Memory
@@ -107,7 +109,7 @@ int main() {
                         }
                 /* CORE */
                 for (int i=0; i<array_size; i++)
-                    printf("%c  ", arr[i]);
+                    printf("%c ", arr[i]);
                 break;
             case '0': // Only used when User Enters 0 during first instance of program
                 printf("Program will now exit\n");
