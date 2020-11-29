@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <ctype.h> //for toupper() function
 
+
 int main() {
     //PRE-SET ARRAY
     char arr[12] = {'B','D','Z','X','W','M','O','S','P','H','G','E'};
@@ -18,7 +19,8 @@ int main() {
         "Choose the typing number: ");
         scanf(" %c", &opt);
 
-        while ( getchar() != '\n'); //Remove extra characters from 'opt'. If this wasn't done, characters after first char will also be parsed in next scanf, which is this
+        fflush(stdin);  //Remove extra characters from 'opt'. If this wasn't done, characters after first char will also be parsed in next scanf, which is this
+                        //clears buffer
                                     // NOTE: Program will go to an endless loop if user enters ^D in nix systems or ctrl D in windows
         printf("You chose: %c\n", opt);
         //NOTE
@@ -35,7 +37,7 @@ int main() {
                 printf("You pressed 1\n");
                 printf("Input your letter to search: \n");
                 scanf(" %c", &search);
-                while ( getchar() != '\n'); //Since previous scanf only gets 1 character, extra characters entered by user will be scanned by next scanf
+                fflush(stdin); //Clears buffer to only accept one character as input
                 printf("\nInput = %c\n", search);
                 /* CORE */
                 for (int i=0; i<array_size; i++)
@@ -65,7 +67,7 @@ int main() {
                 printf("\n--Your input will be converted to uppercase--\n");
                 printf("\nEnter search: \n");
                 scanf(" %c", &search);
-                while ( getchar() != '\n');//Since previous scanf only gets 1 character, extra characters entered by user will be scanned by next scanf
+                fflush(stdin); //Clears buffer to only accept one character as input
                 search = toupper(search);
                 printf("\nYour input was: %c\n", search);
                 /* CORE */
@@ -96,9 +98,12 @@ int main() {
                 /* CORE */
                 break;
             case '3':
-                printf("You pressed 3\n");                                                                              //This algorithm instead of this: https://onlinegdb.com/S1RXU8R5D
+                printf("You pressed 3\n");                                                                              //This algorithm instead of this: https://onlinegdb.com/S1HWQvA9P
                 /* CORE */                                                                                              //Since linked algorithm is hard to make a flowchart out of
-                //Comparing all pairs in array (All combinations, with each combination having 2 elements)              //
+                //Comparing all pairs in array (All combinations, with each combination having 2 elements)
+                printf("Before sorting: \n");
+                for (int i=0; i<array_size; i++)
+                    printf("%c ", arr[i]);
                 for (int i=0; i<array_size; i++)
                     for(int j=i+1; j<array_size; j++)
                         if(arr[j] <arr[i])
