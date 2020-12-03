@@ -48,11 +48,7 @@ int main() {
                         break;
                     }
                     else if (i == (array_size - 1)) // Executes when loop has arrived to last char
-                    {
                         printf("Input not found in array\n");
-                    }
-                    else // Executes to go back to loop
-                        continue;
                 }
                  /* CORE */
                 break;
@@ -61,14 +57,12 @@ int main() {
                 //Print contents of original array
                 printf("Before deletion:\n");
                 for (int i = 0;i<array_size;i++)
-                {
                     printf("%c ", arr[i]);
-                }
                 printf("\n--Your input will be converted to uppercase--\n");
                 printf("\nEnter search: \n");
                 scanf(" %c", &search);
                 fflush(stdin); //Clears buffer to only accept one character as input
-                search = toupper(search);
+                search = toupper(search);//Transforms user input to upper
                 printf("\nYour input was: %c\n", search);
                 /* CORE */
                 //Use Original Array to save Memory
@@ -94,7 +88,6 @@ int main() {
                     }
                 }
                 k=0; //restart value of k for repetitive instances
-
                 /* CORE */
                 break;
             case '3':
