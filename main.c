@@ -84,9 +84,7 @@ int main() {
                         break;
                     }
                     else if (k == array_size-1)
-                    {
-                        printf("\nSorry your input was invalid\n");
-                    }
+                        printf("\nSorry your input can't be found\n");
                 }
                 k=0; //restart value of k for repetitive instances
                 /* CORE */
@@ -94,6 +92,7 @@ int main() {
             case '3':
                 printf("You pressed 3\n");                                                                              //This algorithm instead of this: https://onlinegdb.com/S1HWQvA9P
                 /* CORE */                                                                                              //Since linked algorithm is hard to make a flowchart out of
+                                                                                                                        //Shame since this algorithm is faster
                 //Comparing all pairs in array (All combinations, with each combination having 2 elements)
                 printf("Before sorting: \n");
                 for (int i=0; i<array_size; i++)
@@ -107,6 +106,7 @@ int main() {
                             arr[j] = tmp;       //Sorting
                         }
                 /* CORE */
+                printf("\nAfter sorting: \n");
                 for (int i=0; i<array_size; i++)
                     printf("%c ", arr[i]);
                 break;
