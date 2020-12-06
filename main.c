@@ -34,10 +34,11 @@ int main() {
         // - MAIN MENU
         switch (opt) {
             case '1'://Linear Search
-                printf("You pressed 1\n");
-                printf("Input your letter to search: \n");
+                printf("You pressed 1\n"
+                       "Input your letter to search: \n");
                 scanf(" %c", &search);
                 fflush(stdin); //Clears buffer to only accept one character as input
+                search = toupper(search);//Transforms user input to upper
                 printf("\nInput = %c\n", search);
                 /* CORE */
                 for (int i=0; i<array_size; i++)
@@ -78,7 +79,7 @@ int main() {
                         }
                         array_size = array_size - 1; //Update array size. Minus one since one element has been deleted
                         printf("\nAfter Deletion:\n");
-                        for (int i;i<array_size;i++)
+                        for (int i=0;i<array_size;i++)
                             printf("%c ", arr[i]);
                         break;
                     }
@@ -109,17 +110,17 @@ int main() {
                 for (int i=0; i<array_size; i++)
                     printf("%c ", arr[i]);
                 break;
-            case '0': // Only used when User Enters 0 during first instance of program
+            case '0': // Only used when User is in Menu
                 printf("Program will now exit\n");
                 break;
             default: //Checks if opt is in range or is a letter
                 printf("Sorry, the character you entered wasn't in the options displayed \nPlease Try Again.\n");
 
         }
-        if (opt == '1' || opt == '2' || opt == '3') { // Return to Menu or Exit
+         // Return to Menu or Exit
             printf("\nEnter any character to continue or 0 to exit: ");
             scanf(" %c", &opt);
-        }
+
     }
     return 0;
 }
