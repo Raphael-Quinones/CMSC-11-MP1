@@ -117,11 +117,12 @@ int main() {
                 printf("Sorry, the character you entered wasn't in the options displayed \nPlease Try Again.\n");
 
         }
-        if (opt == "1"|| opt == "2"||opt=="3") // Return to Menu or Exit
+        if (opt == '1'|| opt == '2'||opt=='3') // Return to Menu or Exit
+        {
             printf("\nEnter any character to continue or 0 to exit: ");
             scanf(" %c", &opt);
             fflush(stdin);
-
+        }
     }
     return 0;
 }
